@@ -1,4 +1,12 @@
 
+// fetch
+let getUrl = `"http://localhost:5050/fibonacci/:${}"`
+
+fetch(getUrl).then(function(response){
+  
+})
+
+// fetch
 function fibionacci(num4) {   
   let num1 = 0;
   let num2 = 1;
@@ -10,7 +18,6 @@ function fibionacci(num4) {
   }
   return num2;
 }
-
 
 document.getElementById('validateBtn').addEventListener('click',function(){
   let form = document.getElementById('fname').value
