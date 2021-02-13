@@ -1,6 +1,7 @@
-
-
 let button = document.getElementById('btn')
+let err = document.getElementById('error')
+let spin = document.getElementById('spiner')
+let answer = document.getElementById('y')
 let url = ""
 let num4 = ""
 
@@ -15,21 +16,32 @@ function fibionacci(num4) {
     }
     return num3;
 }
-
 function getFibonacci() {
-    let num4 = document.getElementById('fname').value
-    document.getElementById('y').innerText = fibionacci(num4)
-    changeUrl()
+    spin.classList.remove("visually-hidden")
+    num4 = document.getElementById('fname').value
+    if (num4 > 50){
+        err.classList.remove("visually-hidden")
+    }
+    else{
+        err.classList.add("visually-hidden")
+        changeUrl()
+    } 
 }
-
 function changeUrl(num4) {
     num4 = document.getElementById('fname').value
     url = `http://localhost:5050/fibonacci/${num4}`
-    // console.log(url)
-    fetch(url).then(response => {
-        response.json().then(data => {
-            document.getElementById('y').innerText = data.result;
-        });
+     fetch(url).then(response => {
+        if (!response.ok){
+            response.text().then(text => {
+                answer.innerText = `Server Error: ${text}`;
+            });    
+        }
+        else{
+            response.json().then(data => {
+                answer.innerText = data.result;
+                console.log(data.result)
+            })
+        }
     });
 }
 button.addEventListener('click', getFibonacci)

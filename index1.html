@@ -19,12 +19,19 @@
             <div class="col-md-auto">The Fibonacci of </div>
             <div class="col-md-auto ">
                 <input type="number" class="form-control" id="fname">
+                <div class="alert alert-danger visually-hidden" id="error" role="alert">
+                    can't be longer than 50
+                </div>
             </div>
 
             <div class="col-md-auto">
                 <button type="button" class="btn btn-primary" id="btn">is</button>
             </div>
-            <div class="col-md-auto" id="y"></div>
+            <div class="col-md-auto" id="y">
+                <div class="spinner-border text-dark visually-hidden" role="status" id="spiner">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
         </div>
     </div>
 
