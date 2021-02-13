@@ -1,15 +1,6 @@
-// fetch
-
-// let getUrl = `"http://localhost:5050/fibonacci/:${}"`
-
-// fetch(getUrl).then(function(response){
-  
-// })
-
-// fetch
-
-//const input = document.getElementById('fname')
-//let hey = input.value
+let button = document.getElementById('btn')
+let url = ""
+let num4 = ""
 
 function fibionacci(num4) {   
   let num1 = 0;
@@ -22,29 +13,19 @@ function fibionacci(num4) {
   }
   return num3;
 }
-let button = document.getElementById('btn')
-button.addEventListener('click', function() {
-  
-const num4 = document.getElementById('fname').value
-console.log(num4)
-  document.getElementById('y').innerText = fibionacci(num4)
-})
 
+function getFibonacci(){
+  let num4 = document.getElementById('fname').value
+document.getElementById('y').innerText = fibionacci(num4)
+changeUrl()
+}
 
-
-
-
-
-// document.getElementById('btn').addEventListener('click',function(){
-//   let form = document.getElementById('fname').value
-// document.getElementById('y').innerText = fibionacci(form)
-// })
-
-
-// raz code
-// function getFibonacci(){
-
-// }
-// const input = document.getElementById('fname')
-
-// button.addEventListener('click', getFibonacci)
+function changeUrl (num4){
+  num4 = document.getElementById('fname').value
+  url = `http://localhost:5050/fibonacci/${num4}`
+  // console.log(url)
+  fetch(url).then(response => { response.json().then(data => {
+    document.getElementById('y').innerText = data.result;});
+   });
+  }
+button.addEventListener('click', getFibonacci)
