@@ -1,20 +1,35 @@
 
+
+let button = document.getElementById('btn')
+let url = ""
+let num4 = ""
+
 function fibionacci(num4) {
-       
-    let num1 = 1;
+    let num1 = 0;
     let num2 = 1;
-    for (let i = 3; i <= num4; i++) {
-      let num3 = num1 + num2;
-      num1 = num2;
-      num2 = num3;
+    let num3 = 1
+    for (let i = 2; i <= num4; i++) {
+        num3 = num1 + num2;
+        num1 = num2;
+        num2 = num3;
     }
-    return num2;
-  }
-  let num4 = 7
-  let num1 = fibionacci(num4)
-  fibionacci(num4)
+    return num3;
+}
 
-let num2 = num4
+function getFibonacci() {
+    let num4 = document.getElementById('fname').value
+    document.getElementById('y').innerText = fibionacci(num4)
+    changeUrl()
+}
 
-document.getElementById('y').innerText = num1
-document.getElementById('x').innerText = num2
+function changeUrl(num4) {
+    num4 = document.getElementById('fname').value
+    url = `http://localhost:5050/fibonacci/${num4}`
+    // console.log(url)
+    fetch(url).then(response => {
+        response.json().then(data => {
+            document.getElementById('y').innerText = data.result;
+        });
+    });
+}
+button.addEventListener('click', getFibonacci)
