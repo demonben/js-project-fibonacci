@@ -5,7 +5,6 @@ let spin1 = document.getElementById('spiner2')
 let answer = document.getElementById('y')
 let ulResult = document.getElementById('ulist')
 let nothing = ""
-
 let url = ""
 let url2 = "http://localhost:5050/getFibonacciResults"
 let num4 = ""
@@ -32,7 +31,6 @@ function getFibonacci() {
         err.classList.add("visually-hidden")
         changeUrl()
     } 
-    window.onload = callServer()
 }
 function changeUrl(num4) {
     num4 = document.getElementById('fname').value
@@ -51,10 +49,11 @@ function changeUrl(num4) {
         }
     });
 }
-button.addEventListener('click', getFibonacci)
+button.addEventListener('click', callServer )
+
+
 
 function callServer(){
-    
     fetch(url2).then(response =>{
         response.json().then(data => {
             funcServer(data)
@@ -64,19 +63,19 @@ function callServer(){
 function funcServer(data){
     spin1.classList.add("visually-hidden")
     for (let i = 0; i < data.results.length; i++) {
-        let stuff = data.results[i].number
-         
-        let stuff1 = data.results[i].result
-
-        let stuff2 = new Date(data.results[i].createdDate)
+        const {number , result , createdDate} = data.results[i]
+        // let stuff = data.results[i].number
+        // let stuff1 = data.results[i].result
+        // let stuff2 = new Date(data.results[i].createdDate)
         let line = document.createElement("li")
-        myData1 = nothing + "Fibionacci " + stuff + " is " + stuff1 + " Calculated at: " + stuff2
-
+        myData1 = nothing + "Fibionacci " + number + " is " + result + " Calculated at: " + new Date(createdDate)
         line.innerHTML = myData1
         ulResult.appendChild(line)
     }
+    getFibonacci()
 }
 callServer()
+
 
 
 
