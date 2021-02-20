@@ -1,53 +1,91 @@
-#header{width: 672px;
+* {
+font-family: "Open Sans", sans-serif;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+#header{
+width: 100%;
 height: 79px;
 left: 164px;
 top: 100px;
-font-family: Open Sans;
 font-style: normal;
 font-weight: normal;
 font-size: 72px;
 line-height: 79px;
 color: #373A3C;
+margin-bottom: 4%;
 }
 #ulist{
     list-style: none;
-    font-size: 20px;
+    font-size: 24px;
+    padding-top: 18px;
 }
-.line li{
+li{
     border-bottom: black solid 1px;
+    padding-top: 24px;
+    padding-bottom:18px;
+    font-size: 24px;
+    font-weight: 400;
+}
+#fname{
+width: 86px;
+height: 38px;
+}
+#select{
+    background: #E6E6E6;
+
 }
 #res{
-    width: 182px;
+width: 182px;
 height: 72px;
 left: 164px;
 top: 347px;
-
-font-family: Open Sans;
 font-style: normal;
 font-weight: normal;
 font-size: 54px;
 line-height: 72px;
 display: flex;
 align-items: flex-end;
-
 color: #373A3C;
+margin-top: 5%;
 }
 #fibio{
-width: 189px;
+width: 200px;
 height: 24px;
 left: 169px;
 top: 236px;
-
-font-family: Open Sans;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
 line-height: 24px;
-/* identical to box height, or 100% */
-
 display: flex;
 align-items: flex-end;
-
 color: #373A3C;
+}
+#checkbox{
+    margin-left: 10px;
+}
+#select{
+    width: 122px;
+    height: 38px;
+}
+#y{
+    text-decoration: underline;
+}
+#spin{
+    margin-top: 7%;
+}
+.design{
+    padding-left: 0;
 
 }
+ul {
+    padding-left: 0;
+}
+#container{
+    margin-left: 14%;
+    margin-top: 10%;
+}
+
